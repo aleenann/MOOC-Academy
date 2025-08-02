@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MOOC Academy</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #222;
+      color: white;
+      padding: 15px 30px;
+      text-align: center;
+    }
+
+    main {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .course-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .course {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .course:hover {
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .description-section {
+      max-width: 700px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    #backButton {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 8px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    #enrollForm {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      width: 300px;
+      z-index: 1000;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>MOOC Academy</h1>
+</header>
+
+<!-- Back Button -->
+<button id="backButton" class="hidden" onclick="goBack()">⬅ Back</button>
+
+<main id="mainSection">
+
+  <!-- Landing Page -->
+  <div class="form-container" id="landingPage">
+    <h2>Welcome to MOOC Academy</h2>
+    <p>Please select an option to continue:</p>
+    <button onclick="showLogin()">Login</button>
+    <button onclick="showSignup()">Sign Up</button>
+  </div>
+
+  <!-- Login Page -->
+  <div class="form-container hidden" id="loginPage">
+    <h2>Login</h2>
+    <input type="email" placeholder="Email" id="loginEmail" />
+    <input type="password" placeholder="Password" id="loginPassword" />
+    <button onclick="login()">Login</button>
+    <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+  </div>
+
+  <!-- Signup Page -->
+  <div class="form-container hidden" id="signupPage">
+    <h2>Sign Up</h2>
+    <input type="text" placeholder="Full Name" />
+    <input type="email" placeholder="Email" />
+    <input type="password" placeholder="Password" />
+    <button onclick="signup()">Create Account</button>
+    <p>Already have an account? <a href="#" onclick="showLogin()">Log in</a></p>
+  </div>
+
+  <!-- Course List Page -->
+  <div class="hidden" id="coursePage">
+    <h2>Available Courses</h2>
+    <div class="course-list">
+      <div class="course" onclick="selectCourse('Machine Learning')">
+        <h3>Machine Learning</h3>
+        <p><strong>Prof. Ananya Iyer</strong><br>MIT</p>
+        <p>Intro to models, data, and training algorithms.</p>
+      </div>
+      <div class="course" onclick="selectCourse('Quantum Computing')">
+        <h3>Quantum Computing</h3>
+        <p><strong>Dr. Yuuto Nakamura</strong><br>University of Tokyo</p>
+        <p>Learn the basics of qubits and quantum logic.</p>
+      </div>
+      <div class="course" onclick="selectCourse('Blockchain Basics')">
+        <h3>Blockchain Basics</h3>
+        <p><strong>Dr. Eva Müller</strong><br>ETH Zurich</p>
+        <p>Understand how decentralized systems work.</p>
+      </div>
+      <div class="course" onclick="selectCourse('Astrophysics 101')">
+        <h3>Astrophysics 101</h3>
+        <p><strong>Dr. Luis Fernández</strong><br>Caltech</p>
+        <p>Explore the structure of stars and galaxies.</p>
+      </div>
+      <div class="course" onclick="selectCourse('Philosophy of AI')">
+        <h3>Philosophy of AI</h3>
+        <p><strong>Prof. Amara Singh</strong><br>Oxford</p>
+        <p>Debate ethics, sentience, and consciousness.</p>
+      </div>
+      <div class="course" onclick="selectCourse('Entrepreneurship')">
+        <h3>Entrepreneurship</h3>
+        <p><strong>Dr. Sarah Thompson</strong><br>Stanford GSB</p>
+        <p>Startups, venture capital, and product-market fit.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Description -->
+  <div class="description-section hidden" id="courseDescription">
+    <h2 id="courseTitle">Course Title</h2>
+    <p><strong>Instructor:</strong> <span id="instructor"></span></p>
+    <p><strong>Duration:</strong> 8 weeks</p>
+    <p><strong>Exam Date:</strong> 25th November 2025</p>
+    <p><strong>Description:</strong></p>
+    <p id="courseDetails"></p>
+    <button onclick="showEnrollForm()">Enroll</button>
+    <button onclick="startCourse()" id="startButton" class="hidden">Start Course</button>
+    <video controls class="hidden" id="courseVideo">
+      <source src="mooc.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Enrollment Popup -->
+  <div id="overlay" class="hidden"></div>
+  <div id="enrollForm" class="hidden">
+    <h3>Enroll Now</h3>
+    <input type="text" id="enrollName" placeholder="Full Name" required />
+    <input type="email" id="enrollEmail" placeholder="Email" required />
+    <button onclick="submitEnrollment()">Submit</button>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="description-section hidden" id="dashboard">
+    <h2>My Dashboard</h2>
+    <div id="myCoursesList"></div>
+    <button onclick="goToCoursePage()">Browse More Courses</button>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 MOOC Academy. All rights reserved.</p>
+</footer>
+
+<script>
+let pageHistory = [];
+let currentCourse = "";
+
+function showPage(id) {
+  const sections = ["landingPage", "loginPage", "signupPage", "coursePage", "courseDescription", "dashboard"];
+  sections.forEach(sec => document.getElementById(sec).classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+
+  if (pageHistory[pageHistory.length - 1] !== id) {
+    pageHistory.push(id);
+  }
+
+  document.getElementById("backButton").classList.toggle("hidden", pageHistory.length <= 1);
+}
+
+function goBack() {
+  if (pageHistory.length > 1) {
+    pageHistory.pop();
+    const previous = pageHistory[pageHistory.length - 1];
+    showPage(previous);
+  }
+}
+
+function showSignup() {
+  showPage("signupPage");
+}
+
+function showLogin() {
+  showPage("loginPage");
+}
+
+function login() {
+  showPage("coursePage");
+}
+
+function signup() {
+  alert("Account created successfully. Please login.");
+  showLogin();
+}
+
+function selectCourse(courseName) {
+  const instructors = {
+    "Machine Learning": "Prof. Ananya Iyer (MIT)",
+    "Quantum Computing": "Dr. Yuuto Nakamura (University of Tokyo)",
+    "Blockchain Basics": "Dr. Eva Müller (ETH Zurich)",
+    "Astrophysics 101": "Dr. Luis Fernández (Caltech)",
+    "Philosophy of AI": "Prof. Amara Singh (Oxford)",
+    "Entrepreneurship": "Dr. Sarah Thompson (Stanford GSB)"
+  };
+
+  const descriptions = {
+    "Machine Learning": "Learn how computers learn from data to make predictions...",
+    "Quantum Computing": "Explore qubits, entanglement, and algorithms that outperform classical systems...",
+    "Blockchain Basics": "Understand blockchain mechanics, smart contracts, and DeFi systems...",
+    "Astrophysics 101": "Learn about stars, black holes, and galactic evolution...",
+    "Philosophy of AI": "Discuss the ethics and consciousness of intelligent systems...",
+    "Entrepreneurship": "Go from startup idea to launch with real-world strategies..."
+  };
+
+  currentCourse = courseName;
+  document.getElementById("courseTitle").innerText = courseName;
+  document.getElementById("instructor").innerText = instructors[courseName] || "TBD";
+  document.getElementById("courseDetails").innerText = descriptions[courseName] || "Coming soon.";
+  document.getElementById("courseVideo").classList.add("hidden");
+  document.getElementById("startButton").classList.add("hidden");
+  showPage("courseDescription");
+}
+
+function showEnrollForm() {
+  document.getElementById("overlay").classList.remove("hidden");
+  document.getElementById("enrollForm").classList.remove("hidden");
+}
+
+function submitEnrollment() {
+  const name = document.getElementById("enrollName").value.trim();
+  const email = document.getElementById("enrollEmail").value.trim();
+  if (!name || !email) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  document.getElementById("overlay").classList.add("hidden");
+  document.getElementById("enrollForm").classList.add("hidden");
+  document.getElementById("startButton").classList.remove("hidden");
+  enrollInCourse(currentCourse);
+}
+
+function startCourse() {
+  document.getElementById("courseVideo").classList.remove("hidden");
+}
+
+function enrollInCourse(course) {
+  let data = JSON.parse(localStorage.getItem("enrolledCourses")) || {};
+  if (!data[course]) {
+    data[course] = { progress: 0, certificate: false };
+    localStorage.setItem("enrolledCourses", JSON.stringify(data));
+  }
+}
+
+function loadDashboard() {
+  showPage("dashboard");
+  const myCourses = JSON.parse(localStorage.getItem("enrolledCourses")) || {};
+  const listContainer = document.getElementById("myCoursesList");
+  listContainer.innerHTML = "";
+
+  if (Object.keys(myCourses).length === 0) {
+    listContainer.innerHTML = "<p>You haven't enrolled in any course yet.</p>";
+    return;
+  }
+
+  for (let course in myCourses) {
+    let progress = myCourses[course].progress;
+    let courseBox = document.createElement("div");
+    courseBox.style.border = "1px solid #ccc";
+    courseBox.style.margin = "10px 0";
+    courseBox.style.padding = "15px";
+    courseBox.style.borderRadius = "8px";
+    courseBox.innerHTML = `
+      <h3>${course}</h3>
+      <p>Progress: ${progress}%</p>
+      <progress value="${progress}" max="100"></progress><br><br>
+      ${progress < 100
+        ? `<button onclick="simulateProgress('${course}')">Continue Course</button>`
+        : `<a href="certificate_dummy.pdf" target="_blank">🎓 Download Certificate</a>`}
+    `;
+    listContainer.appendChild(courseBox);
+  }
+}
+
+function simulateProgress(courseName) {
+  let data = JSON.parse(localStorage.getItem("enrolledCourses")) || {};
+  if (data[courseName]) {
+    data[courseName].progress = 100;
+    data[courseName].certificate = true;
+    localStorage.setItem("enrolledCourses", JSON.stringify(data));
+    loadDashboard();
+  }
+}
+
+function goToCoursePage() {
+  showPage("coursePage");
+}
+
+showPage("landingPage");
+</script>
+
+</body>
+</html>
