@@ -14,46 +14,62 @@
 
 
 ### Project Description
-The Moustache Meter is a wildly unnecessary tool that scans a photo of your face, counts the number of moustache hairs you have, and gives you a personality "reading" based on your follicle density.
+MOOC Academy is a fun, full-featured online course platform where users can sign up, enroll in various cool courses, and earn certificates — all on one page!
 
 ### The Problem (that doesn't exist)
-Society is crumbling because people have no clue how grown their moustache is. Is it a baby stache? Is it wise? The confusion is real (not really).
+There are just way too many educational platforms out there with too many features... who needs all that? We fixed that by making one that’s simple and does everything in one neat scroll.
 
 ### The Solution (that nobody asked for)
-We count the hairs. You get a fortune. We all pretend moustache science is a thing. Upload an image, let us detect your face and moustache, count the hairs, and rate your moustache journey — from baby to beard legend.
+A one-page website that lets you:
+
+Sign up / Log in
+Browse quirky courses
+Enroll in a popup
+Watch video lectures after enrolling
+Track progress and get a (totally real) certificate — all on localStorage 😎
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- Python
-- OpenCV  
-- NumPy  
-- Matplotlib
+- Languages Used: HTML, CSS, JavaScript
+- Frameworks Used: None (Vanilla JS FTW!)
+- Libraries Used: None
+- Tools Used: VSCode, Live Server
 
 For Hardware:
 - none
 
 ### Implementation
 For Software:
-# Installation
-Install the required Python libraries using the following command:
-    pip install opencv-python matplotlib numpy
-Make sure you're using Python 3.x and have it properly installed on your system.
+# Step 1: Clone the repository
+git clone https://github.com/your-username/mooc-academy.git
+
+# Step 2: Navigate into the project folder
+cd mooc-academy
+
+# Step 3: Open the index.html file in your browser
+# You can double-click it, or use Live Server if using VS Code
 
 # Run
-python moustache_meter.py
+ in VSCode
+# Install the Live Server extension (if not already installed)
+# Then right-click on index.html and select "Open with Live Server"
+
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Original Image](original_image.png)
+![Original Image](https://github.com/aleenann/the-moustache-meter/blob/main/Images/original_image.png)
+
 *This is the original uploaded image.*
 
-![Masked Edges](masked_edges.png)
+![Masked Edges](https://github.com/aleenann/the-moustache-meter/blob/main/Images/masked_edges.png)
+
 *Edges detected in the moustache area.*
 
-![Detected Contours](contour_output.png)
+![Detected Contours](https://github.com/aleenann/the-moustache-meter/blob/main/Images/contour_output.png)
+
 *Contours drawn around detected moustache hairs.*
 
 # Diagrams
@@ -65,12 +81,10 @@ For Software:
 [Add your demo video link here]
 *Explain what the video demonstrates*
 
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
-- Aleena Ann: [Specific contributions]
-- Afna TA: [Specific contributions]
+- Aleena Ann: Idea, Coding
+- Afna TA: Coding
 
 
 ---
