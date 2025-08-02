@@ -2,7 +2,7 @@
 
 
 # MOOC Academy 🎯
-
+Or should we say... MOOK Academy? 👃
 
 ## Basic Details
 ### Team Name: Dabba
@@ -14,19 +14,20 @@
 
 
 ### Project Description
-MOOC Academy is a fun, full-featured online course platform where users can sign up, enroll in various cool courses, and earn certificates — all on one page!
+A full-fledged MOOC platform… or so it seems 👀
+Users can sign up, choose courses from top professors worldwide, enroll, and even get certificates.
+BUT the only course content is — how to draw a nose.
+Because “mook” (pronounced mooc) means nose in Malayalam. You're welcome.
 
 ### The Problem (that doesn't exist)
-There are just way too many educational platforms out there with too many features... who needs all that? We fixed that by making one that’s simple and does everything in one neat scroll.
+People desperately need access to high-quality, internationally certified tutorials...
+...on drawing noses.
+But sadly, no one has stepped up to solve this massive crisis.
 
 ### The Solution (that nobody asked for)
-A one-page website that lets you:
-
-Sign up / Log in
-Browse quirky courses
-Enroll in a popup
-Watch video lectures after enrolling
-Track progress and get a (totally real) certificate — all on localStorage 😎
+We built an immersive, fully functional MOOC platform —
+...that only teaches how to draw a nose.
+In the name of education, deception, and mild trolling.
 
 ## Technical Details
 ### Technologies/Components Used
