@@ -1,7 +1,7 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+# MOOC Academy 🎯
 
 
 ## Basic Details
@@ -60,26 +60,17 @@ cd mooc-academy
 For Software:
 
 # Screenshots (Add at least 3)
-![Original Image](https://github.com/aleenann/the-moustache-meter/blob/main/Images/original_image.png)
+![Login Page](https://github.com/aleenann/MOOC-Academy/blob/main/Images/Login.png)
 
-*This is the original uploaded image.*
+*This is the login/sign up page.*
 
-![Masked Edges](https://github.com/aleenann/the-moustache-meter/blob/main/Images/masked_edges.png)
+![Course List](https://github.com/aleenann/MOOC-Academy/blob/main/Images/course_list.png)
 
-*Edges detected in the moustache area.*
+*Shows all courses*
 
-![Detected Contours](https://github.com/aleenann/the-moustache-meter/blob/main/Images/contour_output.png)
+![Course Preview](https://github.com/aleenann/MOOC-Academy/blob/main/Images/course_preview.png)
 
-*Contours drawn around detected moustache hairs.*
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
-
-### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+*Course Preview, Enroll etc*
 
 
 ## Team Contributions
